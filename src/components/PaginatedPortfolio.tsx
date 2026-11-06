@@ -124,7 +124,7 @@ export const PaginatedPortfolio: React.FC = () => {
   const ugeximProject = projectsData.find((project) => project.id === 'uganda-exim') ?? projectsData[0];
 
   return (
-    <div className={`portfolio-shell relative flex min-h-screen flex-col overflow-hidden bg-[#050505] text-white ${pageIndex === 0 ? 'home-page xl:h-dvh xl:min-h-0' : ''}`}>
+    <div className={`portfolio-shell relative flex flex-col overflow-hidden bg-[#050505] text-white xl:h-dvh xl:min-h-0 ${pageIndex === 0 ? 'home-page' : 'inner-page'}`} style={{ minHeight: '100dvh' }}>
       <div className="pointer-events-none fixed inset-0 -z-10 bg-subtle-grid opacity-20" />
       <div className="pointer-events-none fixed inset-0 -z-10 bg-[radial-gradient(circle_at_top,_rgba(255,255,255,0.045),_transparent_38%)]" />
 
@@ -179,7 +179,7 @@ export const PaginatedPortfolio: React.FC = () => {
         </a>
       </header>
 
-      <main className={`portfolio-main relative z-10 min-h-0 flex-1 px-4 sm:px-6 lg:px-8 ${pageIndex === 0 ? 'home-main py-3 xl:py-1' : 'py-6'}`}>
+      <main className={`portfolio-main relative z-10 min-h-0 flex-1 px-4 sm:px-6 lg:px-8 ${pageIndex === 0 ? 'home-main py-3 xl:py-1' : 'py-4 xl:py-3'}`}>
         <div className="mx-auto flex h-full w-full max-w-[1500px] flex-col">
           {pageIndex === 0 && (
             <section aria-labelledby="home-title" className="home-content flex min-h-0 flex-1 items-center">

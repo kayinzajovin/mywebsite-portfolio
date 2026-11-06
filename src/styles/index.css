@@ -131,6 +131,39 @@ textarea {
   }
 }
 
+/* Inner pages always fill the viewport and compress on large screens */
+@media (min-width: 1024px) {
+  .portfolio-shell.inner-page {
+    height: 100dvh;
+    min-height: 0;
+  }
+
+  .inner-page .portfolio-header {
+    height: 3.5rem;
+  }
+
+  .inner-page .portfolio-footer {
+    height: 3rem;
+  }
+
+  .inner-page .portfolio-main {
+    padding-block: 0.5rem;
+    overflow-y: auto;
+    overflow-x: hidden;
+    scrollbar-width: thin;
+    scrollbar-color: rgba(250, 204, 21, 0.4) transparent;
+  }
+
+  .inner-page .portfolio-main::-webkit-scrollbar {
+    width: 6px;
+  }
+
+  .inner-page .portfolio-main::-webkit-scrollbar-thumb {
+    background: rgba(250, 204, 21, 0.4);
+    border-radius: 999px;
+  }
+}
+
 @media (max-width: 1023px) {
   .portfolio-header nav[aria-label='Portfolio pages'] {
     -webkit-overflow-scrolling: touch;
