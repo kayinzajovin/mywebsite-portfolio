@@ -147,7 +147,7 @@ textarea {
   }
 
   .inner-page .portfolio-main {
-    padding-block: 0.5rem;
+    padding-block: 0.75rem;
     overflow-y: auto;
     overflow-x: hidden;
     scrollbar-width: thin;
@@ -161,6 +161,12 @@ textarea {
   .inner-page .portfolio-main::-webkit-scrollbar-thumb {
     background: rgba(250, 204, 21, 0.4);
     border-radius: 999px;
+  }
+
+  /* Ensure sections inside the scrollable main start from top */
+  .inner-page .portfolio-main section {
+    min-height: 0;
+    overflow: visible;
   }
 }
 

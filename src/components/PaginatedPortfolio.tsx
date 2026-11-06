@@ -180,7 +180,7 @@ export const PaginatedPortfolio: React.FC = () => {
       </header>
 
       <main className={`portfolio-main relative z-10 min-h-0 flex-1 px-4 sm:px-6 lg:px-8 ${pageIndex === 0 ? 'home-main py-3 xl:py-1' : 'py-4 xl:py-3'}`}>
-        <div className="mx-auto flex h-full w-full max-w-[1500px] flex-col">
+        <div className={`mx-auto w-full max-w-[1500px] flex-col ${pageIndex === 0 ? 'flex h-full' : 'block'}`}>
           {pageIndex === 0 && (
             <section aria-labelledby="home-title" className="home-content flex min-h-0 flex-1 items-center">
               <div className="w-full">
@@ -287,7 +287,7 @@ export const PaginatedPortfolio: React.FC = () => {
           )}
 
           {pageIndex === 1 && (
-            <section aria-labelledby="about-title" className="flex min-h-0 flex-1 flex-col justify-center">
+            <section aria-labelledby="about-title" className="flex min-h-0 flex-1 flex-col justify-start">
               <PageHeading
                 id="about-title"
                 eyebrow="About me"
@@ -331,7 +331,7 @@ export const PaginatedPortfolio: React.FC = () => {
           )}
 
           {pageIndex === 2 && (
-            <section aria-labelledby="skills-title" className="flex min-h-0 flex-1 flex-col justify-center">
+            <section aria-labelledby="skills-title" className="flex min-h-0 flex-1 flex-col justify-start">
               <PageHeading
                 id="skills-title"
                 eyebrow="Technical skills"
@@ -372,7 +372,7 @@ export const PaginatedPortfolio: React.FC = () => {
           )}
 
           {pageIndex === 3 && (
-            <section aria-labelledby="projects-title" className="flex min-h-0 flex-1 flex-col justify-center">
+            <section aria-labelledby="projects-title" className="flex min-h-0 flex-1 flex-col justify-start">
               <PageHeading
                 id="projects-title"
                 eyebrow="Featured projects"
@@ -453,7 +453,7 @@ export const PaginatedPortfolio: React.FC = () => {
           )}
 
           {pageIndex === 4 && (
-            <section aria-labelledby="case-study-title" className="flex min-h-0 flex-1 flex-col justify-center">
+            <section aria-labelledby="case-study-title" className="flex min-h-0 flex-1 flex-col justify-start">
               <PageHeading
                 id="case-study-title"
                 eyebrow="Case study"
@@ -508,7 +508,7 @@ export const PaginatedPortfolio: React.FC = () => {
           )}
 
           {pageIndex === 5 && (
-            <section aria-labelledby="education-title" className="flex min-h-0 flex-1 flex-col justify-center">
+            <section aria-labelledby="education-title" className="flex min-h-0 flex-1 flex-col justify-start">
               <PageHeading
                 id="education-title"
                 eyebrow="Education & certifications"
@@ -576,7 +576,7 @@ export const PaginatedPortfolio: React.FC = () => {
           )}
 
           {pageIndex === 6 && (
-            <section aria-labelledby="github-title" className="flex min-h-0 flex-1 items-center justify-center">
+            <section aria-labelledby="github-title" className="flex min-h-0 flex-1 items-start justify-start pt-4">
               <div className={`${panelClass} w-full max-w-3xl p-6 sm:p-8`}>
                 <div className="flex flex-col gap-5 sm:flex-row sm:items-center sm:justify-between">
                   <div>
@@ -613,7 +613,7 @@ export const PaginatedPortfolio: React.FC = () => {
           )}
 
           {pageIndex === 7 && (
-            <section aria-labelledby="contact-title" className="flex min-h-0 flex-1 items-center justify-center">
+            <section aria-labelledby="contact-title" className="flex min-h-0 flex-1 items-start justify-start pt-4">
               <div className="grid w-full max-w-5xl gap-5 lg:grid-cols-[1.1fr_0.9fr]">
                 <div className={`${panelClass} p-6 sm:p-8`}>
                   <p className="text-[11px] font-semibold uppercase tracking-[0.18em] text-[#facc15]">Contact me</p>
