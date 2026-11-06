@@ -61,16 +61,16 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenCommandPalette }) => {
     <header
       className={`sticky top-0 left-0 right-0 z-40 transition-all duration-200 ${
         isScrolled
-          ? 'bg-[#0b0f19]/95 backdrop-blur-md border-b border-slate-800 shadow-md py-3'
-          : 'bg-transparent py-4'
+          ? 'bg-[#0b0f19]/95 backdrop-blur-md border-b border-slate-800 shadow-md py-2.5'
+          : 'bg-transparent py-3'
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between">
+        <div className="flex items-center justify-between gap-4">
           {/* Logo / Brand */}
           <a
             href="#home"
-            className="flex items-center gap-2.5 group focus:outline-none rounded-lg"
+            className="flex items-center gap-2.5 group focus:outline-none rounded-lg shrink-0"
           >
             <div className="w-9 h-9 rounded-xl bg-blue-600 flex items-center justify-center font-bold text-white text-sm tracking-wider font-mono shadow-sm">
               JK
@@ -85,15 +85,15 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenCommandPalette }) => {
             </div>
           </a>
 
-          {/* Desktop Nav Links */}
-          <nav className="hidden xl:flex items-center gap-1 bg-[#121827] px-2 py-1.5 rounded-full border border-slate-800 shadow-sm">
+          {/* Desktop Nav Links — centred pill */}
+          <nav className="hidden lg:flex items-center gap-0.5 bg-[#121827] px-2 py-1.5 rounded-full border border-slate-800 shadow-sm mx-auto">
             {navLinks.map((link) => {
               const isActive = activeSection === link.id;
               return (
                 <a
                   key={link.id}
                   href={link.href}
-                  className={`px-3 py-1.5 text-xs font-semibold rounded-full transition-all ${
+                  className={`px-3.5 py-1.5 text-xs font-semibold rounded-full transition-all ${
                     isActive
                       ? 'text-white bg-blue-600 shadow-sm'
                       : 'text-slate-300 hover:text-white hover:bg-slate-800/60'
@@ -106,7 +106,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenCommandPalette }) => {
           </nav>
 
           {/* Action buttons */}
-          <div className="flex items-center gap-2 sm:gap-3">
+          <div className="flex items-center gap-2 sm:gap-3 shrink-0">
             {/* Quick jump command palette */}
             <button
               onClick={onOpenCommandPalette}
@@ -123,7 +123,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenCommandPalette }) => {
             {/* Mobile menu toggle */}
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="xl:hidden p-2 text-slate-300 hover:text-white bg-[#121827] border border-slate-800 rounded-xl transition-colors"
+              className="lg:hidden p-2 text-slate-300 hover:text-white bg-[#121827] border border-slate-800 rounded-xl transition-colors"
               aria-label={mobileMenuOpen ? 'Close navigation menu' : 'Open navigation menu'}
             >
               {mobileMenuOpen ? <X className="w-5 h-5 text-blue-400" /> : <Menu className="w-5 h-5" />}
@@ -133,8 +133,8 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenCommandPalette }) => {
 
         {/* Mobile menu drawer */}
         {mobileMenuOpen && (
-          <div className="xl:hidden mt-3 p-4 bg-[#121827] border border-slate-800 rounded-2xl shadow-xl">
-            <div className="grid grid-cols-2 gap-2 mb-3">
+          <div className="lg:hidden mt-3 p-4 bg-[#121827] border border-slate-800 rounded-2xl shadow-xl">
+            <div className="grid grid-cols-3 gap-2 mb-3">
               {navLinks.map((link) => {
                 const isActive = activeSection === link.id;
                 return (
@@ -142,7 +142,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenCommandPalette }) => {
                     key={link.id}
                     href={link.href}
                     onClick={() => setMobileMenuOpen(false)}
-                    className={`px-3 py-2 text-sm font-medium rounded-xl transition-colors ${
+                    className={`px-3 py-2 text-sm font-medium rounded-xl transition-colors text-center ${
                       isActive
                         ? 'bg-blue-600 text-white font-semibold'
                         : 'text-slate-300 hover:bg-slate-800 hover:text-white'
