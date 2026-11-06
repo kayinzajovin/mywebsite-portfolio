@@ -124,11 +124,11 @@ export const PaginatedPortfolio: React.FC = () => {
   const ugeximProject = projectsData.find((project) => project.id === 'uganda-exim') ?? projectsData[0];
 
   return (
-    <div className={`portfolio-shell relative flex min-h-screen flex-col overflow-hidden bg-[#050505] text-white ${pageIndex === 0 ? 'xl:h-dvh xl:min-h-0' : ''}`}>
+    <div className={`portfolio-shell relative flex min-h-screen flex-col overflow-hidden bg-[#050505] text-white ${pageIndex === 0 ? 'home-page xl:h-dvh xl:min-h-0' : ''}`}>
       <div className="pointer-events-none fixed inset-0 -z-10 bg-subtle-grid opacity-20" />
       <div className="pointer-events-none fixed inset-0 -z-10 bg-[radial-gradient(circle_at_top,_rgba(255,255,255,0.045),_transparent_38%)]" />
 
-      <header className="z-10 flex h-16 shrink-0 items-center justify-between border-b border-white/10 bg-[#090909]/90 px-4 backdrop-blur-sm sm:px-6 lg:px-8">
+      <header className="portfolio-header z-10 flex min-h-16 shrink-0 flex-wrap items-center justify-between gap-x-4 gap-y-1 border-b border-white/10 bg-[#090909]/90 px-4 py-2 backdrop-blur-sm sm:px-6 lg:flex-nowrap lg:px-8">
         <a
           href="#home"
           onClick={(event) => {
@@ -143,7 +143,7 @@ export const PaginatedPortfolio: React.FC = () => {
           <div className="text-sm font-bold tracking-wide text-white">{profileData.name}</div>
         </a>
 
-        <nav aria-label="Portfolio pages" className="hidden items-center gap-2 xl:flex">
+        <nav aria-label="Portfolio pages" className="order-3 flex w-full min-w-0 items-center gap-2 overflow-x-auto whitespace-nowrap py-1 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden lg:order-none lg:w-auto lg:overflow-visible">
           {navItems.map((item) => {
             const Icon = item.icon;
             const pageIndexForItem = pages.findIndex((page) => page.id === item.key);
@@ -179,13 +179,13 @@ export const PaginatedPortfolio: React.FC = () => {
         </a>
       </header>
 
-      <main className={`relative z-10 min-h-0 flex-1 px-4 sm:px-6 lg:px-8 ${pageIndex === 0 ? 'py-3 xl:py-1' : 'py-6'}`}>
+      <main className={`portfolio-main relative z-10 min-h-0 flex-1 px-4 sm:px-6 lg:px-8 ${pageIndex === 0 ? 'home-main py-3 xl:py-1' : 'py-6'}`}>
         <div className="mx-auto flex h-full w-full max-w-[1500px] flex-col">
           {pageIndex === 0 && (
-            <section aria-labelledby="home-title" className="flex min-h-0 flex-1 items-center">
+            <section aria-labelledby="home-title" className="home-content flex min-h-0 flex-1 items-center">
               <div className="w-full">
-                <div className="grid w-full items-center gap-6 xl:grid-cols-[1.15fr_0.85fr]">
-                  <div className="space-y-5 xl:space-y-4">
+                <div className="home-hero-grid grid w-full items-center gap-4 md:grid-cols-[1.15fr_0.85fr] lg:gap-6">
+                  <div className="home-copy space-y-5 md:space-y-4">
                     <div className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/[0.04] px-4 py-2 text-sm text-white">
                       <span className="h-2.5 w-2.5 rounded-full bg-[var(--accent)]" />
                       {profileData.status}
@@ -195,13 +195,13 @@ export const PaginatedPortfolio: React.FC = () => {
                     </div>
 
                     <div>
-                      <h1 id="home-title" className="max-w-[920px] text-[clamp(2.25rem,4vw,3.5rem)] font-extrabold leading-[1.02] tracking-[-0.045em] text-white">
+                      <h1 id="home-title" className="home-title max-w-[920px] text-[clamp(2.25rem,4vw,3.5rem)] font-extrabold leading-[1.02] tracking-[-0.045em] text-white">
                         Building Reliable Backend Systems.
                         <span className="mt-2 block text-[#a1a1aa]">Turning Ideas Into Working Software.</span>
                       </h1>
                     </div>
 
-                    <p className="max-w-[700px] text-base leading-7 text-zinc-300 sm:text-lg">
+                    <p className="home-description max-w-[700px] text-base leading-7 text-zinc-300 sm:text-lg">
                       I am a Python backend developer and software engineering graduate with practical experience building REST APIs, working with databases, and contributing to collaborative software projects.
                     </p>
 
@@ -234,14 +234,14 @@ export const PaginatedPortfolio: React.FC = () => {
 
                   </div>
 
-                  <div className="relative flex justify-center xl:justify-end">
+                  <div className="relative flex justify-center md:justify-end">
                     <div className="absolute inset-0 -z-10 rounded-[30px] bg-[radial-gradient(circle_at_center,_rgba(255,255,255,0.1),_transparent_52%)] blur-2xl" />
                     <div className="relative w-full max-w-[520px]">
                       <div className="overflow-hidden rounded-[28px]">
                         <img
                           src={profileData.photoUrl}
                           alt={profileData.photoAlt}
-                          className="h-[340px] w-full object-cover object-top sm:h-[420px] xl:h-[min(50dvh,400px)]"
+                          className="home-photo h-[340px] w-full object-cover object-top sm:h-[420px] md:h-[min(50dvh,400px)]"
                         />
                       </div>
 
@@ -260,25 +260,25 @@ export const PaginatedPortfolio: React.FC = () => {
                     </div>
                   </div>
                 </div>
-                <div className="mt-4 grid auto-rows-fr grid-cols-1 gap-3 sm:grid-cols-2 xl:mt-3 xl:grid-cols-5">
-                  <button type="button" onClick={() => navigateToPage(1)} className="group flex h-full flex-col rounded-2xl border border-white/10 bg-gradient-to-br from-[#191919] to-[#101010] p-4 text-left transition hover:border-white/20">
-                    <div className="mb-4 flex w-full items-center justify-between"><UserRound className="h-6 w-6 text-[var(--accent)]"/><ArrowRight className="h-4 w-4 text-zinc-500 transition group-hover:translate-x-1"/></div>
+                <div className="home-cards mt-4 grid auto-rows-fr grid-cols-1 gap-3 sm:grid-cols-2 lg:mt-3 lg:grid-cols-5">
+                  <button type="button" onClick={() => navigateToPage(1)} className="home-card group flex h-full flex-col rounded-2xl border border-white/10 bg-gradient-to-br from-[#191919] to-[#101010] p-4 text-left transition hover:border-white/20">
+                    <div className="home-card-icon mb-4 flex w-full items-center justify-between"><UserRound className="h-6 w-6 text-[var(--accent)]"/><ArrowRight className="h-4 w-4 text-zinc-500 transition group-hover:translate-x-1"/></div>
                     <h2 className="font-semibold text-white">About Me</h2><p className="mt-2 text-sm leading-5 text-[#b4b4bd]">A software engineer focused on Python and dependable backend systems.</p>
                   </button>
-                  <button type="button" onClick={() => navigateToPage(2)} className="group flex h-full flex-col rounded-2xl border border-white/10 bg-gradient-to-br from-[#191919] to-[#101010] p-4 text-left transition hover:border-white/20">
-                    <div className="mb-4 flex w-full items-center justify-between"><Code2 className="h-6 w-6 text-[var(--accent)]"/><ArrowRight className="h-4 w-4 text-zinc-500 transition group-hover:translate-x-1"/></div>
+                  <button type="button" onClick={() => navigateToPage(2)} className="home-card group flex h-full flex-col rounded-2xl border border-white/10 bg-gradient-to-br from-[#191919] to-[#101010] p-4 text-left transition hover:border-white/20">
+                    <div className="home-card-icon mb-4 flex w-full items-center justify-between"><Code2 className="h-6 w-6 text-[var(--accent)]"/><ArrowRight className="h-4 w-4 text-zinc-500 transition group-hover:translate-x-1"/></div>
                     <h2 className="font-semibold text-white">Technical Skills</h2><p className="mt-2 text-sm leading-5 text-[#b4b4bd]">Python, Django, REST APIs, PostgreSQL, Git and testing.</p>
                   </button>
-                  <button type="button" onClick={() => navigateToPage(3)} className="group flex h-full flex-col rounded-2xl border border-white/10 bg-gradient-to-br from-[#191919] to-[#101010] p-4 text-left transition hover:border-white/20">
-                    <div className="mb-4 flex w-full items-center justify-between"><Briefcase className="h-6 w-6 text-[var(--accent)]"/><ArrowRight className="h-4 w-4 text-zinc-500 transition group-hover:translate-x-1"/></div>
+                  <button type="button" onClick={() => navigateToPage(3)} className="home-card group flex h-full flex-col rounded-2xl border border-white/10 bg-gradient-to-br from-[#191919] to-[#101010] p-4 text-left transition hover:border-white/20">
+                    <div className="home-card-icon mb-4 flex w-full items-center justify-between"><Briefcase className="h-6 w-6 text-[var(--accent)]"/><ArrowRight className="h-4 w-4 text-zinc-500 transition group-hover:translate-x-1"/></div>
                     <h2 className="font-semibold text-white">Featured Project</h2><p className="mt-2 text-sm leading-5 text-[#b4b4bd]">UGExim Loan Operations Platform</p>
                   </button>
-                  <button type="button" onClick={() => navigateToPage(5)} className="group flex h-full flex-col rounded-2xl border border-white/10 bg-gradient-to-br from-[#191919] to-[#101010] p-4 text-left transition hover:border-white/20">
-                    <div className="mb-4 flex w-full items-center justify-between"><GraduationCap className="h-6 w-6 text-[var(--accent)]"/><ArrowRight className="h-4 w-4 text-zinc-500 transition group-hover:translate-x-1"/></div>
+                  <button type="button" onClick={() => navigateToPage(5)} className="home-card group flex h-full flex-col rounded-2xl border border-white/10 bg-gradient-to-br from-[#191919] to-[#101010] p-4 text-left transition hover:border-white/20">
+                    <div className="home-card-icon mb-4 flex w-full items-center justify-between"><GraduationCap className="h-6 w-6 text-[var(--accent)]"/><ArrowRight className="h-4 w-4 text-zinc-500 transition group-hover:translate-x-1"/></div>
                     <h2 className="font-semibold text-white">Education</h2><p className="mt-2 text-sm leading-5 text-[#b4b4bd]">Software Engineering with Python · Refactory Academy</p>
                   </button>
-                  <button type="button" onClick={() => navigateToPage(7)} className="group flex h-full flex-col rounded-2xl border border-white/10 bg-gradient-to-br from-[#191919] to-[#101010] p-4 text-left transition hover:border-white/20">
-                    <div className="mb-4 flex w-full items-center justify-between"><Mail className="h-6 w-6 text-[var(--accent)]"/><ArrowRight className="h-4 w-4 text-zinc-500 transition group-hover:translate-x-1"/></div>
+                  <button type="button" onClick={() => navigateToPage(7)} className="home-card group flex h-full flex-col rounded-2xl border border-white/10 bg-gradient-to-br from-[#191919] to-[#101010] p-4 text-left transition hover:border-white/20">
+                    <div className="home-card-icon mb-4 flex w-full items-center justify-between"><Mail className="h-6 w-6 text-[var(--accent)]"/><ArrowRight className="h-4 w-4 text-zinc-500 transition group-hover:translate-x-1"/></div>
                     <h2 className="font-semibold text-white">Contact</h2><p className="mt-2 text-sm leading-5 text-[#b4b4bd]">Let’s build something great together.</p>
                   </button>
                 </div>
@@ -724,7 +724,7 @@ export const PaginatedPortfolio: React.FC = () => {
         </div>
       </main>
 
-      <footer className="z-10 flex h-16 shrink-0 items-center justify-between border-t border-white/10 bg-[#090909]/90 px-4 backdrop-blur-sm sm:px-6 lg:px-8">
+      <footer className="portfolio-footer z-10 flex h-16 shrink-0 items-center justify-between border-t border-white/10 bg-[#090909]/90 px-4 backdrop-blur-sm sm:px-6 lg:px-8">
         <button
           type="button"
           onClick={() => navigateToPage(pageIndex - 1)}
